@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="container text-center" style="margin: 30px">
+        <h3>Agregar Empleado</h3>
+    </div>
+
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <label for="firstName" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="first" name="first" required="true"
+                    [(ngModel)]="employee.employeeName" #first="ngModel">
+                <div *ngIf="first.invalid && (first.dirty || first.touched)" class="text-danger">
+                    El nombre es obligatorio.
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="lastName" class="form-label">Apellido</label>
+                <input type="text" step="any" class="form-control" id="lastName" name="lastName"
+                    [(ngModel)]="employee.employeeLastName" #last="ngModel">
+                <div *ngIf="last.invalid && (last.dirty || last.touched)" class="text-danger">
+                    El apellido es obligatorio.
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-6 mb-3">
+            <label for="age" class="form-label">Edad</label>
+            <input type="number" class="form-control" id="age" name="age" [(ngModel)]="employee.age">
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="salary" class="form-label">Salario</label>
+            <input type="number" class="form-control" id="salary" name="salary" [(ngModel)]="employee.salary">
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <label for="startDate" class="form-label">Fecha de Inicio</label>
+                <input type="date" class="form-control" id="startDate" name="startDate" [(ngModel)]="employee.initDate">
+            </div>
+            <div class="col-md-6 mb-2">
+                <label for="endDate" class="form-label">Fecha de Fin</label>
+                <input type="date" class="form-control" id="endDate" name="endDate" [(ngModel)]="employee.endDate">
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="status" class="form-label">Status</label>
+            <input type="text" step="any" class="form-control" id="status" name="status"
+                [(ngModel)]="employee.employeeLastName">
+        </div>
+        <div class="mb-3">
+            <label for="department" class="form-label">Departamento</label>
+            <select class="form-select" id="department" name="departmentId" [(ngModel)]="employee.departmentId"
+                required>
+                <option value="" disabled selected>Seleccione un departamento</option>
+                <option *ngFor="let d of departments" [value]="d.id">
+                    {{ d.departmentName }}
+                </option>
+            </select>
+        </div>
+
+        <!-- Botones de acción -->
+        <div class="text-center">
+            <button type="submit" class="btn btn-warning btn-sm me-3">Agregar</button>
+            <a href="/" class="btn btn-danger btn-sm">Regresar</a>
+        </div>
+    </form>
+</div>
