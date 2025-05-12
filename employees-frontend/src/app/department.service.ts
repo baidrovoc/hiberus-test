@@ -7,7 +7,7 @@ import { Department } from './department';
   providedIn: 'root'
 })
 export class DepartmentService {
-  private urlBase = 'http://localhost:8081/department/AllDepartments'; // tu endpoint real
+  private urlBase = 'http://localhost:8080/department/AllDepartments'; // tu endpoint real
 
   constructor(private http: HttpClient) {}
 
